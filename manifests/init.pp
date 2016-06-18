@@ -23,6 +23,10 @@ class brewcask {
     require => File[$cask_home]
   }
 
+  file { "${homebrew::config::brewsdir}/Casks":
+    ensure => directory, 
+  }
+
   package { 'brew-cask':
     require  => Homebrew::Tap['caskroom/cask'],
     provider => homebrew
